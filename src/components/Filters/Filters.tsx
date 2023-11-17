@@ -29,7 +29,7 @@ function Filters() {
 
       <Button variant="contained" color="primary" type="button">Filter</Button>
     </section>
-  )
+  );
 }
 
-export default Filters
+export default Filters;

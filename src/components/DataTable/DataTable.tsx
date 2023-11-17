@@ -131,7 +131,7 @@ const rows = [
     "phone": "(635) 907-3992",
     "name": "Timothy"
   }
-]
+];
 
 function DataTable() {
   return (
@@ -173,7 +173,7 @@ function DataTable() {
         </TableBody>
       </Table>
     </TableContainer>
-  )
+  );
 }
 
-export default DataTable
+export default DataTable;

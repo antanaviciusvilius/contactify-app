@@ -11,7 +11,7 @@ const FilterTextField: FunctionComponent<TextFieldProps> = (props) => {
     >
       {props.children}
     </TextField>
-  )
-}
+  );
+};
 
-export default FilterTextField
+export default FilterTextField;
