@@ -1,0 +1,27 @@
+.user-information {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 38.5px;
+  color: #757575;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  &.titles {
+    text-align: right;
+  }
+}
+
+.email-link {
+  color:#2196F3;
+}

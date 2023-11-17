@@ -1,0 +1,15 @@
+.topbar-container {
+  display: flex;
+  background-color: #0D47A1;
+  padding-inline: 36px;
+
+  .topbar-title {
+    font-family: Open Sans;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+}
