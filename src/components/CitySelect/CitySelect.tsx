@@ -1,7 +1,7 @@
 import MenuItem from '@mui/material/MenuItem';
 import FilterTextField from '../FilterTextField/FilterTextField';
 
-function CitySelect() {
+const CitySelect = () => {
   return (
     <FilterTextField
       select
@@ -17,6 +17,6 @@ function CitySelect() {
       </MenuItem>
     </FilterTextField>
   );
-}
+};
 
 export default CitySelect;
