@@ -32,7 +32,7 @@ function UserCard() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
 
-export default UserCard
+export default UserCard;

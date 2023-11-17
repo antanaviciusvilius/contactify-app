@@ -16,7 +16,7 @@ function CitySelect() {
         Test 2
       </MenuItem>
     </FilterTextField>
-  )
+  );
 }
 
-export default CitySelect
+export default CitySelect;
