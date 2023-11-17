@@ -62,6 +62,24 @@ const customTheme = createTheme({
           color: accentWhiteColor
         }
       }
+    },
+    MuiTableSortLabel: {
+      styleOverrides: {
+        root: {
+          '&.MuiTableSortLabel-root': {
+            color: accentWhiteColor,
+          },
+          '&.MuiTableSortLabel-root:hover': {
+            color: accentWhiteColor,
+          },
+          '&.Mui-active': {
+            color: accentWhiteColor,
+          },
+          '&.Mui-active .MuiTableSortLabel-icon': {
+            color: accentWhiteColor,
+          },
+        }
+      }
     }
   }
 });
