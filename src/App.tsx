@@ -1,29 +1,24 @@
 import { ThemeProvider } from '@mui/material';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import './App.scss';
-import DataTable from './components/DataTable/DataTable';
-import Filters from './components/Filters/Filters';
 import TopBar from './components/TopBar/TopBar';
-import UserCard from './components/UserCard/UserCard';
 import customTheme from './helpers/customTheme';
+import Home from './pages/Home/Home';
+
 
 function App() {
+  const queryClient = new QueryClient();
   return (
-    <ThemeProvider theme={customTheme}>
-      <div className="app-container">
-        <TopBar></TopBar>
-        <main className='main-content'>
-          <Filters></Filters>
-          <section className="data-content">
-            <div className="table-wrapper">
-              <DataTable />
-            </div>
-            <div className="selected-user">
-              <UserCard />
-            </div>
-          </section>
-        </main>
-      </div>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={customTheme}>
+        <div className="app-container">
+          <TopBar></TopBar>
+          <main className='main-content'>
+            <Home />
+          </main>
+        </div>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 
