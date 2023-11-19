@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 import DataTable from '../../components/DataTable/DataTable';
 import Filters from '../../components/Filters/Filters';
-import UserCard from '../../components/UserCard/UserCard';
 import { filterHelper } from '../../helpers/filterHelper';
-import useGetContacts from '../../helpers/getContacts';
+import useGetContacts from '../../helpers/useGetContacts';
 import { Contact } from '../../types/Contact';
 import { FiltersType } from '../../types/FiltersType';
-import './Home.scss';
+import './Contacts.scss';
 
-function Home() {
+function Contacts() {
   const {
     data: contacts,
     error,
@@ -18,6 +18,8 @@ function Home() {
   const [filters, setFilters] = useState<FiltersType>();
   const [filteredContacts, setFilteredContacts] = useState<Contact[]>([]);
 
+  const navigate = useNavigate();
+
   const handleFilterClick = (filters: FiltersType) => {
     setFilters(filters);
   };
@@ -26,7 +28,11 @@ function Home() {
     if (!contacts) return;
     setFilteredContacts(filterHelper(contacts, filters));
   }, [contacts, filters]);
-  
+
+  const handleOnContactSelect = (contactId: string) => {
+    navigate(`/contact/${contactId}`);
+  };
+
 
   if (isLoading) return <div>Fetching contacts...</div>;
   if (error) return <div>An error occurred: {error.message}</div>;
@@ -35,12 +41,12 @@ function Home() {
     return (
       <>
         <Filters contacts={contacts} onFilterClick={handleFilterClick}></Filters>
-        <section className="data-content">
+        <section className="contacts-wrapper">
           <div className="table-wrapper">
-            <DataTable contacts={filteredContacts}/>
+            <DataTable contacts={filteredContacts} onContactSelect={handleOnContactSelect}/>
           </div>
-          <div className="selected-user">
-            <UserCard />
+          <div className="router-wrapper">
+            <Outlet />
           </div>
         </section>
       </>
@@ -48,4 +54,4 @@ function Home() {
   }
 }
 
-export default Home;
+export default Contacts;

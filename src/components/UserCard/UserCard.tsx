@@ -1,8 +1,17 @@
 import { Card, CardContent, CardHeader, CardMedia } from '@mui/material';
+import { FunctionComponent } from 'react';
 import userpic from '../../assets/userpic.png';
+import formatContactName from '../../helpers/formatContactName';
+import { Contact } from '../../types/Contact';
 import './UserCard.scss';
 
-function UserCard() {
+interface UserCardProps {
+  contact: Contact;
+}
+
+const UserCard: FunctionComponent<UserCardProps> = ({contact}) => {
+
+
   return (
     <Card>
       <CardMedia
@@ -12,7 +21,7 @@ function UserCard() {
         width={200}
       />
       <CardHeader
-        title="Anthony H."
+        title={formatContactName(contact)}
         align="center"
       />
       <CardContent>
@@ -24,15 +33,16 @@ function UserCard() {
             <span>Phone:</span>
           </div>
           <div className="column">
-            <span>Anthony H.</span>
-            <span>Los Angeles.</span>
-            <a href="mailto:a.hill@gmail.com" className="email-link">a.hill@gmail.com</a>
-            <span>+1 213 509 6995</span>
+            <span>{formatContactName(contact)}</span>
+            <span>{contact.city }</span>
+            <a href={`mailto:${contact.email}`} className="email-link">{contact.email}</a>
+            <span>{contact.phone}</span>
           </div>
         </div>
       </CardContent>
     </Card>
   );
-}
+};
 
 export default UserCard;
+
