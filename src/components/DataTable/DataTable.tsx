@@ -5,7 +5,7 @@ import { Box, Paper, Table, TableBody, TableContainer, TableSortLabel } from "@m
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { visuallyHidden } from '@mui/utils';
-import React, { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import formatContactName from "../../helpers/formatContactName";
 import { descendingComparator } from "../../helpers/sortHelper";
 import { Contact } from "../../types/Contact";
@@ -98,7 +98,7 @@ const DataTable: FunctionComponent<DataTableProps> = ({ contacts, onContactSelec
     setOrderBy(property);
   };
 
-  const handleOnContactClick = (event: React.MouseEvent<HTMLElement>, contact: Contact) => {
+  const handleOnContactClick = (contact: Contact) => {
     onContactSelect(contact.id);
   };
 
@@ -168,7 +168,7 @@ const DataTable: FunctionComponent<DataTableProps> = ({ contacts, onContactSelec
         </TableHead>
         <TableBody className="table-body">
           {computedContacts.map((contact) => (
-            <StyledTableRow key={contact.name} onClick={(e) => handleOnContactClick(e, contact)}>
+            <StyledTableRow key={contact.name} onClick={() => handleOnContactClick(contact)}>
               {cells.map((cell) => {
                 if (isCellVisible(cell.id)) return (
                   <StyledTableCell key={cell.id} align={cell.bodyAlign}>
