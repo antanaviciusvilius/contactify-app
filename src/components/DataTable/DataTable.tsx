@@ -74,11 +74,13 @@ const DataTable: FunctionComponent<DataTableProps> = ({ contacts }) => {
   };
 
   useEffect(() => {
-    setComputedContacts(contacts.sort((a, b) => {
+    const mutatedArray = [...contacts];
+    const sortedArray = mutatedArray.sort((a, b) => {
       return order === 'desc'
         ? descendingComparator(a, b, orderBy)
         : -descendingComparator(a, b, orderBy);
-    }));
+    });
+    setComputedContacts(sortedArray);
   }, [orderBy, order, contacts]);
 
   return (
@@ -121,7 +123,7 @@ const DataTable: FunctionComponent<DataTableProps> = ({ contacts }) => {
               </StyledTableCell>
               <StyledTableCell>{contact.city}</StyledTableCell>
               <StyledTableCell align="center">
-                <FontAwesomeIcon icon={faEye} fontSize={16} />
+                {contact.isActive && <FontAwesomeIcon icon={faEye} fontSize={16} />}
               </StyledTableCell>
               <StyledTableCell>{contact.email}</StyledTableCell>
               <StyledTableCell align="right">{contact.phone}</StyledTableCell>
