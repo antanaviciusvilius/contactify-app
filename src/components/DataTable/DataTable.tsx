@@ -6,6 +6,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { visuallyHidden } from '@mui/utils';
 import { FunctionComponent, useEffect, useState } from "react";
+import formatContactName from "../../helpers/formatContactName";
 import { descendingComparator } from "../../helpers/sortHelper";
 import { Contact } from "../../types/Contact";
 import './DataTable.scss';
@@ -14,6 +15,7 @@ import StyledTableRow from "./StyledTableRow";
 
 export interface DataTableProps {
   contacts: Contact[];
+  onContactSelect: (contactId: string) => void;
 }
 
 interface HeadCellBase {
@@ -60,7 +62,7 @@ const headCells: readonly HeadCell[] = [
   },
 ];
 
-const DataTable: FunctionComponent<DataTableProps> = ({ contacts }) => {
+const DataTable: FunctionComponent<DataTableProps> = ({ contacts, onContactSelect }) => {
   const [orderBy, setOrderBy] = useState<keyof Contact>('name');
   const [order, setOrder] = useState<'asc' | 'desc'>('desc');
   const [computedContacts, setComputedContacts] = useState(contacts);
@@ -71,6 +73,12 @@ const DataTable: FunctionComponent<DataTableProps> = ({ contacts }) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
+  };
+
+  const handleOnContactClick = (event: React.MouseEvent<HTMLElement>, contact: Contact) => {
+    if (event.detail === 2) {
+      onContactSelect(contact.id);
+    }
   };
 
   useEffect(() => {
@@ -117,9 +125,9 @@ const DataTable: FunctionComponent<DataTableProps> = ({ contacts }) => {
         </TableHead>
         <TableBody className="table-body">
           {computedContacts.map((contact) => (
-            <StyledTableRow key={contact.name}>
+            <StyledTableRow key={contact.name} onClick={(e) => handleOnContactClick(e, contact)}>
               <StyledTableCell scope="row">
-                {contact.name} {contact.surname[0]}.
+                { formatContactName(contact) }
               </StyledTableCell>
               <StyledTableCell>{contact.city}</StyledTableCell>
               <StyledTableCell align="center">

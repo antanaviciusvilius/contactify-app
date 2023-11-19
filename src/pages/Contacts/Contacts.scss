@@ -1,0 +1,21 @@
+.contacts-wrapper {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  z-index: 2;
+  padding: 20px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .contacts-wrapper {
+    margin-top: -28px;
+    grid-template-columns: 905px 330px;
+    gap: 20px;
+    padding: 0 0 69px 44px;
+  }
+}
+
+.table-wrapper {
+  max-height: 50vh;
+}

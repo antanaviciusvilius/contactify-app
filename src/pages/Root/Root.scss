@@ -1,0 +1,11 @@
+.root-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}

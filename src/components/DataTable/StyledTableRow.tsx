@@ -1,6 +1,9 @@
-import { TableRow, styled } from "@mui/material";
+import { TableRow, styled, tableRowClasses } from "@mui/material";
 
 const StyledTableRow = styled(TableRow)(() => ({
+  [`&.${tableRowClasses.root}`]: {
+    cursor: 'pointer',
+  },
   '&:last-child td, &:last-child th': {
     border: 0,
   },

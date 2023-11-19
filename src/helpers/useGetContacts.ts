@@ -13,4 +13,5 @@ const useGetContacts = () => {
   return useQuery<Contact[], Error>("contacts", retrieveContacts);
 };
 
+
 export default useGetContacts;
