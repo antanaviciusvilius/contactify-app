@@ -8,7 +8,7 @@ import { Contact } from '../../types/Contact';
 import { FiltersType } from '../../types/FiltersType';
 import './Contacts.scss';
 
-function Contacts() {
+const Contacts = () => {
   const {
     data: contacts,
     error,
@@ -52,6 +52,6 @@ function Contacts() {
       </>
     );
   }
-}
+};
 
 export default Contacts;

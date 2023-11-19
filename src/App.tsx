@@ -9,8 +9,7 @@ import Root from './pages/Root/Root';
 import SelectedContact from './pages/SelectedContact/SelectedContact';
 
 
-function App() {
-
+const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
@@ -39,6 +38,6 @@ function App() {
       </ThemeProvider>
     </QueryClientProvider>
   );
-}
+};
 
 export default App;

@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import TopBar from '../../components/TopBar/TopBar';
 import './Root.scss';
 
-function Root() {
+const Root = () => {
   return (
     <>
       <div className="root-container">
@@ -13,6 +13,6 @@ function Root() {
       </div>
     </>
   );
-}
+};
 
 export default Root;
