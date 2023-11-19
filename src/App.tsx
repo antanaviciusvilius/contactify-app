@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@mui/material';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 import './App.scss';
 import customTheme from './helpers/customTheme';
 import Contacts from './pages/Contacts/Contacts';
@@ -10,7 +10,7 @@ import SelectedContact from './pages/SelectedContact/SelectedContact';
 
 
 const App = () => {
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: "/",
       element: <Root />,
