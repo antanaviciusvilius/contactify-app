@@ -1,7 +1,8 @@
 import { Contact } from "../types/Contact";
 
 const formatContactName = (contact: Contact) => {
-  return `${contact.name} ${contact.surname[0]}.`;
+  const surname = contact.surname?.[0] ? `${contact.surname?.[0]}.` : '';
+  return `${contact.name} ${surname}`;
 };
 
 export default formatContactName;
