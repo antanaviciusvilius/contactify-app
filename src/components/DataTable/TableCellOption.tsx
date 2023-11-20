@@ -28,7 +28,7 @@ const TableCellOption: FunctionComponent<TableCellOptionProps> = ({options, onOp
   return (
     <>
       <StyledTableCell 
-        align="right" 
+        align="center" 
         onClick={handleClick} 
         sx={{
           [`&.${tableCellClasses.root}`]: {
