@@ -68,7 +68,7 @@ const cells: readonly Cell[] = [
     bodyAlign: 'center',
     toggleable: false,
     formatFn: (row: Contact) => {
-      return row.isActive && <FontAwesomeIcon icon={faEye} fontSize={16} />;
+      return row.isActive && <FontAwesomeIcon icon={faEye} fontSize={16} color="#0000008A"/>;
     }
   },
   {

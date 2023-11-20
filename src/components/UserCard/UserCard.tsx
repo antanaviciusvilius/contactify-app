@@ -10,8 +10,6 @@ interface UserCardProps {
 }
 
 const UserCard: FunctionComponent<UserCardProps> = ({contact}) => {
-
-
   return (
     <Card>
       <CardMedia
